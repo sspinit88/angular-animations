@@ -39,4 +39,6 @@ export class ProjectsComponent implements OnInit {
     this.createNew = false;
     this.projects.push(project);
   }
+
+
 }

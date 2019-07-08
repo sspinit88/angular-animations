@@ -1,0 +1,25 @@
+/*TODO используем :host*/
+:host {
+  display: block;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  box-shadow: 3px 3px 2px #ccc;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+:host(.inactive) {
+  border: 2px solid #ccc;
+  color: #ccc;
+}
+
+
+:host(.marked) {
+  padding: 19px;
+  border: 2px solid blue;
+}
+
+.form-control {
+  display: inline-block;
+  width: 50%;
+}

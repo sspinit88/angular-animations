@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { Project } from './project.model';
 import { ProjectsService } from './projects.service';
 import * as animation from './animations';
+import { routFadeStateTrigger, routSlideStateTrigger } from '../shared/route-animations';
 
 @Component({
   selector: 'app-projects',
@@ -12,6 +13,8 @@ import * as animation from './animations';
     animation.markedTrigger,
     animation.itemStateTrigger,
     animation.slideStateTrigger,
+    routFadeStateTrigger,
+    routSlideStateTrigger
   ]
 })
 export class ProjectsComponent implements OnInit {
@@ -20,6 +23,10 @@ export class ProjectsComponent implements OnInit {
   markedPrjIndex = 0;
   progress = 'progressing';
   createNew = false;
+
+  // todo подключаем анимацию при роутинге
+  // @HostBinding('@routFadeState') routAnimation = true;
+  @HostBinding('@routSlideState') routAnimation = true;
 
   constructor(private prjService: ProjectsService) {
   }

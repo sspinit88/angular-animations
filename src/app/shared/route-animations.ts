@@ -1,12 +1,16 @@
-import { animate, style, transition, trigger } from '@angular/animations';
+import { animate, animation, style, transition, trigger, useAnimation } from '@angular/animations';
+
+export const fadeAnimation = animation([
+  style({
+    opacity: '{{ startOpacity }}'
+  }),
+  animate('{{ duration }}')
+], {params: {startOpacity: 0, duration: '100ms'} });
 
 // todo анимация при переходе по роутам
-export const routFadeStateTrigger = trigger('routFadeState', [
+export const routFadeStateTrigger = (params) => trigger('routFadeState', [
   transition(':enter', [
-    style({
-      opacity: 0
-    }),
-    animate('.5s ease-out')
+    useAnimation(fadeAnimation, {params: params}),
   ]),
   transition(':leave', [
     animate('.5s ease-in', style({
@@ -29,3 +33,6 @@ export const routSlideStateTrigger = trigger('routSlideState', [
       opacity: 0,
     }))),
 ]);
+
+
+

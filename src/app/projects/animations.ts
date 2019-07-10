@@ -1,4 +1,4 @@
-import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes, animation } from '@angular/animations';
 
 export const markedTrigger = trigger('markedState', [
   state('default', style({
@@ -112,3 +112,4 @@ export const slideStateTrigger = trigger('slideState', [
     })),
   ])
 ]);
+

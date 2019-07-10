@@ -13,7 +13,8 @@ import { routFadeStateTrigger, routSlideStateTrigger } from '../shared/route-ani
     animation.markedTrigger,
     animation.itemStateTrigger,
     animation.slideStateTrigger,
-    routFadeStateTrigger,
+    // routFadeStateTrigger,
+    routFadeStateTrigger({startOpacity: 0, duration: '5s'}),
     routSlideStateTrigger
   ]
 })
@@ -25,8 +26,8 @@ export class ProjectsComponent implements OnInit {
   createNew = false;
 
   // todo подключаем анимацию при роутинге
-  // @HostBinding('@routFadeState') routAnimation = true;
-  @HostBinding('@routSlideState') routAnimation = true;
+  @HostBinding('@routFadeState') routAnimation = true;
+  // @HostBinding('@routSlideState') routAnimation = true;
 
   constructor(private prjService: ProjectsService) {
   }

@@ -33,9 +33,11 @@
         [value]="status">{{ status }}</option>
     </select>
   </div>
+  <!--todo анимация кнопок-->
   <button
     type="submit"
     [disabled]="!f.valid"
+    [@buttonState]="!f.valid ? 'invalid' : 'valid'"
     class="btn btn-success">Create Project</button>
   <button
     type="button"

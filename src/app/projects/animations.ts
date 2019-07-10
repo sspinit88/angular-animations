@@ -75,4 +75,40 @@ export const itemStateTrigger = trigger('itemState', [
       }),
     ]))
   ]),
+  // todo плавное движение блоков при совместной работе с раскр меню добавления действий
+  transition('slideUp => slideDown',[
+    style({
+      transform: 'translateY(-100%)',
+    }),
+    animate('.5s ease-out', style({
+      transform: 'translateY(0)',
+    })),
+  ]),
+  transition('slideDown => slideUp',[
+    style({
+      transform: 'translateY(0)',
+    }),
+    animate('.5s ease-out', style({
+      transform: 'translateY(-100%)',
+    })),
+  ]),
+]);
+
+export const slideStateTrigger = trigger('slideState', [
+  transition(':enter', [
+    style({
+      transform:  'translateY(-100%)',
+    }),
+    animate('.5s ease-out', style({
+      transform:  'translateY(0)',
+    })),
+  ]),
+  transition(':leave', [
+    style({
+      transform:  'translateY(0)',
+    }),
+    animate('.5s ease-out', style({
+      transform:  'translateY(-100%)',
+    })),
+  ])
 ]);

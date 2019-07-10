@@ -11,6 +11,7 @@ import * as animation from './animations';
   animations: [
     animation.markedTrigger,
     animation.itemStateTrigger,
+    animation.slideStateTrigger,
   ]
 })
 export class ProjectsComponent implements OnInit {
@@ -46,7 +47,10 @@ export class ProjectsComponent implements OnInit {
 
   onProjectCreated(project: Project) {
     this.createNew = false;
-    this.projects.unshift(project);
+    // todo добавляем таймаут, что бы не было наложений анимаций
+    setTimeout(() => {
+      this.projects.unshift(project);
+    }, 500);
   }
 
   // todo последвательное появление
